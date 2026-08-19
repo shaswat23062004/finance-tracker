@@ -64,14 +64,14 @@ Transactions - Finance Tracker
         <tbody>
             {% for transaction in transactions %}
     <tr>
-        <td>{{ transaction[4] }}</td>  {# Date #}
-        <td>{{ transaction[3] }}</td>  {# Category #}
-        <td>₹{{ transaction[2] }}</td>  {# Amount #}
-        <td>{{ transaction[6] }}</td>  {# Payment Method #}
-        <td>{{ transaction[5] }}</td>  {# Notes or Description #}
+        <td>{{ transaction.date }}</td>
+        <td>{{ transaction.category }}</td>
+        <td>₹{{ transaction.amount }}</td>
+        <td>{{ transaction.payment_method }}</td>
+        <td>{{ transaction.description }}</td>
         <td>
             <!-- Button or link to trigger the delete action -->
-            <form action="{{ url_for('delete_transaction', transaction_id=transaction[0]) }}" method="post">
+            <form action="{{ url_for('delete_transaction', transaction_id=transaction.id) }}" method="post">
                 <button type="submit" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
             </form>
         </td>
